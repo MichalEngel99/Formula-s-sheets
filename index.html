@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>מאגר נוסחאות</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew:wght@400;700&display=swap">
+<style>
+:root{--bg:#F6E8E8;--card:#FBF3F3;--pink:#D9B4B4;--dusty:#B98A8F;--dark:#8E5A63;--cherry:#C94A6D;--red:#7A1F3D;--green:#6B7A3A;--green-l:#A3B27A;--text:#A94E68;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;font-family:"Playpen Sans Hebrew",Arial,sans-serif;font-size:16px;color:var(--text);background:repeating-linear-gradient(0deg,rgba(238,190,198,.38) 0 28px,transparent 28px 56px),repeating-linear-gradient(90deg,rgba(238,190,198,.38) 0 28px,transparent 28px 56px),#FBF1E6;background-attachment:fixed;min-height:100vh}
+#app{max-width:820px;margin:0 auto;padding:18px 14px 50px}
+h1,h2,h3{color:var(--dark);margin:0}
+.tag{display:inline-block;background:rgba(251,243,243,.65);backdrop-filter:blur(3px);border-radius:14px;padding:8px 18px;font-size:1.4rem;font-weight:700;color:var(--dark)}
+.top{position:relative;text-align:center;padding:6px 52px 4px}
+.add{position:absolute;top:0;right:0;width:44px;height:44px;border-radius:50%;border:0;background:var(--green);color:#fff;font-size:28px;line-height:1;cursor:pointer;font-family:inherit;transition:transform .35s}
+.sub{margin:10px 0 0;font-size:.95rem}
+button,select,input,textarea{font-family:inherit;font-size:1rem}
+.btn{background:var(--red);color:#fff;border:0;border-radius:14px;padding:10px 18px;cursor:pointer;font-weight:700;transition:transform .25s}
+.btn2{background:var(--card);color:var(--dark);border:1px solid var(--dusty);border-radius:14px;padding:9px 16px;cursor:pointer;transition:transform .25s}
+.btn3{background:#F3DDE0;color:var(--dark);border:1px solid var(--pink);border-radius:14px;padding:9px 16px;cursor:pointer;font-weight:700;transition:transform .25s}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:26px}
+.fold{position:relative;background:var(--card);border:1px solid var(--pink);border-radius:16px;padding:20px 10px 12px;text-align:center;cursor:pointer;transition:transform .3s,box-shadow .3s;color:var(--text)}
+.fold svg.f{width:96px;height:74px;display:block;margin:0 auto 6px}
+.fold b{display:block;color:var(--dark)}
+.fold small{color:var(--dusty)}
+.card{position:relative;background:#F8ECEC;border:1px solid var(--pink);border-radius:16px;padding:18px 14px 14px;margin:22px 0 14px;transition:transform .3s,box-shadow .3s,background .3s}
+.bow{position:absolute;top:-10px;z-index:1;left:50%;transform:translateX(-50%);width:46px;height:26px;pointer-events:none}
+.bow svg{width:100%;height:100%}
+.hd{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.hd h4{margin:0;color:var(--dark);font-size:1.05rem;flex:1;min-width:60%}
+.id{color:var(--dusty);font-size:.85rem}
+.ty{color:#fff;border-radius:10px;padding:2px 10px;font-size:.8rem;font-weight:700}
+.t-definition{background:var(--dark)}.t-theorem{background:var(--red)}.t-identity,.t-formula{background:var(--cherry)}.t-condition{background:var(--green)}.t-rule{background:var(--dusty)}.t-x{background:var(--dark)}
+.fbox{background:#fff;border:1px solid var(--pink);border-radius:10px;padding:10px 12px;margin:8px 0;overflow-x:auto;color:var(--text)}
+.m{direction:ltr;unicode-bidi:isolate;display:inline-block;font-family:"Times New Roman",serif;font-size:1.12rem;white-space:nowrap}
+.m mjx-container{margin:0!important}.m svg{max-width:none}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 2px}
+.fr>span:first-child{border-bottom:1px solid currentColor;padding:0 3px}
+.cs{display:inline-flex;flex-direction:column;border-left:2px solid currentColor;padding-left:8px;vertical-align:middle}
+.cr span{margin-right:14px}
+.fl{padding:4px 0;line-height:1.9}
+.fh{margin-bottom:6px;line-height:1.9}
+.cr2{display:flex;gap:12px;padding:3px 0;border-top:1px dashed var(--pink)}
+.cr2 span:first-child{min-width:70px}
+.gi{display:flex;gap:8px;padding:4px 0;border-top:1px dashed var(--pink);line-height:1.9}
+.steps{margin:0;padding:0;list-style:none}
+.steps li{display:flex;gap:10px;align-items:center;padding:4px 0}
+.steps b{background:var(--cherry);color:#fff;border-radius:50%;min-width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center}
+.row{margin:8px 0;line-height:1.6}
+.row b{color:var(--red)}
+.card.done{background:#E4EBCB;border-color:var(--green-l);color:var(--green)}
+.fh2{font-size:.95rem;margin:18px 0 4px}.card .hd{padding-left:24px}
+.warn{border:1.5px dashed var(--dusty);border-radius:12px;padding:8px 12px;margin:8px 0;line-height:1.6}.swr{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-top:10px;color:var(--dark)}.sw{direction:ltr;position:relative;width:46px;height:26px;border-radius:13px;border:1.5px solid var(--dusty);background:#FBF1E6;cursor:pointer;padding:0;transition:background .3s,border-color .3s}.sw::after{content:'';position:absolute;top:3px;left:3px;width:17px;height:17px;border-radius:50%;background:var(--dusty);transition:left .3s,background .3s}.sw.on{background:var(--green);border-color:var(--green)}.sw.on::after{left:23px;background:#fff}
+.chip{display:inline-block;background:var(--card);border:1px solid var(--dusty);color:var(--dark);border-radius:10px;padding:0 8px;margin:0 2px;cursor:pointer;text-decoration:none}
+.chk{display:flex;align-items:center;gap:8px;margin-top:10px;font-weight:400;cursor:pointer}
+input[type=checkbox]{appearance:none;-webkit-appearance:none;width:24px;height:24px;flex:none;margin:0;border:2px solid var(--cherry);border-radius:7px;background:#FBF1E6;cursor:pointer;display:inline-grid;place-content:center}input[type=checkbox]::after{content:"";width:6px;height:11px;border:solid var(--cherry);border-width:0 3px 3px 0;transform:rotate(45deg) scale(0);transition:transform .2s;margin-top:-2px}input[type=checkbox]:checked::after{transform:rotate(45deg) scale(1)}.addc{background:#FBF1E6;color:var(--green);border:1.5px solid var(--green);border-radius:14px;padding:9px 16px;cursor:pointer;font-weight:700;transition:transform .25s}.drop{display:flex;flex-direction:column;align-items:center;gap:6px;border:2px dashed var(--green);border-radius:16px;background:#FBF1E6;color:var(--green);padding:26px 12px;cursor:pointer;text-align:center}.drop.over,.drop:focus-visible{border-style:solid;outline:0}.drop small{color:var(--dusty)}.xdel{position:absolute;top:6px;left:6px;width:26px;height:26px;border-radius:50%;border:1px solid var(--pink);background:var(--card);color:var(--dusty);cursor:pointer;line-height:1;padding:0;font-size:16px}
+.notes{margin-top:10px;border-top:1px dashed var(--pink);padding-top:8px}
+.notes li{margin:4px 0;line-height:1.5}
+.notes ul{padding:0;margin:0;list-style:none}
+.notes li::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--cherry);margin-inline-end:8px}
+.notes .x{background:none;border:0;color:var(--dusty);cursor:pointer;font-size:1.1rem}
+.nadd{display:flex;gap:6px;margin-top:6px}
+.nadd input{flex:1}
+input[type=text],input:not([type]),select,textarea{background:#fff;border:1px solid var(--dusty);border-radius:10px;padding:9px 12px;color:var(--text);width:100%}
+input::placeholder,textarea::placeholder{color:var(--dusty)}
+details.sec{background:var(--card);border:1px solid var(--pink);border-radius:16px;margin:26px 0 12px;position:relative;padding-top:4px}
+details.sec>summary{list-style:none;cursor:pointer;padding:12px 14px;display:flex;align-items:center;gap:10px;font-weight:700;color:var(--dark);font-size:1.08rem}
+details.sec>summary::-webkit-details-marker{display:none}
+details.sec>summary::after{content:"◂";margin-inline-start:auto;color:var(--dusty);transition:transform .3s}
+details.sec[open]>summary::after{transform:rotate(-90deg)}
+.num{background:var(--dark);color:#fff;border-radius:10px;min-width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center}
+.prog{font-size:.8rem;color:var(--green);font-weight:400}
+.body{padding:0 12px 12px}
+.body h3{font-size:1rem;margin:14px 4px 0}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.chips .btn2.on{background:var(--dark);color:#fff;border-color:var(--dark)}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.empty{text-align:center;padding:34px 10px;color:var(--dusty)}
+.empty div{font-size:2.4rem}
+dialog{background:var(--card);color:var(--text);border:1px solid var(--pink);border-radius:16px;padding:20px;width:min(440px,92vw)}
+dialog::backdrop{background:rgba(142,90,99,.35)}
+dialog label{display:block;margin:10px 0 4px;color:var(--dark);font-weight:700}
+dialog label small{font-weight:400;color:var(--dusty)}
+.two{display:flex;gap:10px}.two>div{flex:1}
+.acts{display:flex;gap:10px;margin-top:16px}
+.back{background:none;border:0;color:var(--dark);cursor:pointer;padding:4px 0;font-weight:700}
+.msg{margin-top:10px;font-size:.9rem}
+.fl2{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:6px 0}
+mark{background:#EBC9D1;color:var(--red);border-radius:4px}
+@media (hover:hover){.fold:hover,.card:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(185,138,143,.35)}.btn:hover,.btn2:hover,.btn3:hover,.addc:hover{transform:scale(1.04)}.add:hover{transform:rotate(90deg)}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.auth{max-width:820px;margin:0 auto;padding:10px 14px 0;display:flex;justify-content:flex-end;align-items:center;gap:10px;font-size:.85rem;color:var(--dusty)}
+</style>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]]},svg:{fontCache:"none"},startup:{typeset:false}};</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🌺%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<div id="auth" class="auth"></div>
+<div id="app"></div>
+
+<dialog id="dc"><h2>קורס חדש</h2>
+<label>שם הקורס <small>(חובה)</small></label><input id="cn" placeholder="למשל: חדו&quot;א 1">
+<div class="two"><div><label>שנה <small>(בחירה)</small></label><select id="cy"><option value="">—</option><option>א</option><option>ב</option><option>ג</option><option>ד</option><option>ה</option><option>ו</option></select></div>
+<div><label>סמסטר <small>(בחירה)</small></label><select id="cs"><option value="">—</option><option>א</option><option>ב</option><option>קיץ</option></select></div></div>
+<label>תיאור <small>(לא חובה)</small></label><textarea id="cd" rows="2" placeholder="משהו קטן שיעזור לך לזכור"></textarea>
+<div class="msg" id="cm"></div>
+<div class="acts"><button class="btn" id="cok">יצירת קורס</button><button class="btn2" id="cx">ביטול</button></div></dialog>
+
+<dialog id="df"><h2>הוספת תוכן</h2>
+<p class="row">אפשר להוסיף כמה קבצים, והחומר ימוזג לעמוד הקורס 🌷</p>
+<input type="file" id="fi" accept=".json,application/json" multiple hidden>
+<div class="drop" id="fb" role="button" tabindex="0"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg><b>לחצי להוספת תוכן</b><small>קובץ json של החומר</small></div>
+<div id="fl"></div><div class="msg" id="fm"></div>
+<div class="acts"><button class="btn2" id="fx">סגירה</button></div></dialog>
+
+<dialog id="dq"><p id="dqt" class="row"></p><div class="acts"><button class="btn" id="dqy">כן, למחוק</button><button class="btn2" id="dqn">ביטול</button></div></dialog>
+
+<script>
+const BOW='<div class="bow"><svg viewBox="0 0 60 34"><defs><linearGradient id="bg" gradientUnits="userSpaceOnUse" x1="2" y1="0" x2="59" y2="0"><stop offset="0" stop-color="#E27F8B"/><stop offset=".55" stop-color="#EFA3A6"/><stop offset="1" stop-color="#F7C9C0"/></linearGradient></defs><g fill="none" stroke="url(#bg)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M30 12C22 7 12 3 7 7c-5 5-1 13 6 13 7 0 13-5 17-8z"/><path d="M30 12C36 6 46 2 53 5c6 4 2 11-6 12-7 1-13-2-17-5z"/><path d="M30 12C29 20 24 27 14 31.5"/><path d="M30 12C33 20 40 24 48 22c4-1 8-3 11-2"/></g><circle cx="30" cy="12" r="2.3" fill="#E27F8B"/></svg></div>';
+const FOLDER='<svg class="f" viewBox="0 0 120 92"><path d="M6 16a7 7 0 0 1 7-7h28l10 11h56a7 7 0 0 1 7 7v10H6z" fill="#D9B4B4"/><rect x="6" y="30" width="108" height="56" rx="9" fill="#EBC9D1" stroke="#B98A8F" stroke-width="1.5"/><path d="M14 40h92" stroke="#FBF3F3" stroke-width="3" stroke-linecap="round"/></svg>';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const has=v=>v!=null&&!/^\s*(null)?\s*$/i.test(String(v));
+const okf=f=>f!=null&&(typeof f==="string"?has(f):typeof f==="object"&&(has(f.tex)||(Array.isArray(f.segments)&&f.segments.length>0)||f.caseValue!=null||f.stepNumber!=null));
+const okc=k=>k&&typeof k==="object"&&(has(k.name)||(Array.isArray(k.formulas)&&k.formulas.some(okf)));
+const norm=k=>({...k,_s:k,_g:!has(k.id),id:has(k.id)?String(k.id):String(k.name||"c"+Math.random().toString(36).slice(2,6)),name:has(k.name)?k.name:""});
+const K="formula-bank-v1";
+let learn=false,S={courses:[]},DB=null,openSec=new Set(),q="",flt="all";
+try{const r=localStorage.getItem(K);if(r)S=JSON.parse(r)}catch(e){}
+function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}
+ if(DB)DB.doc("site/state").set({json:JSON.stringify(S)}).catch(()=>{})}
+window.__setState=j=>{if(j&&Array.isArray(j.courses)&&JSON.stringify(j)!==JSON.stringify(S)){S=j;try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}render()}};window.__setDB=d=>{DB=d};
+
+/* TeX -> readable HTML */
+const M={le:"≤",ge:"≥",neq:"≠",iff:"⇔",implies:"⟹",Rightarrow:"⇒",land:"∧",infty:"∞",in:"∈",cdot:"·",to:"→",lim:"lim",left:"",right:"",qquad:"\u2003\u2003",quad:"\u2003"};
+function tex(t){let s=esc(t);
+ s=s.replace(/\\begin\{cases\}([\s\S]*?)\\end\{cases\}/g,(_,b)=>'<span class="cs">'+b.split("\\\\").map(r=>'<span class="cr">'+r.split("&amp;").map(c=>"<span>"+c+"</span>").join("")+"</span>").join("")+"</span>");
+ s=s.replace(/_\{([^{}]*)\}/g,"<sub>$1</sub>").replace(/\^\{([^{}]*)\}/g,"<sup>$1</sup>").replace(/_(\w)/g,"<sub>$1</sub>").replace(/\^(\w)/g,"<sup>$1</sup>")
+ .replace(/\\mathbb\{R\}/g,"ℝ").replace(/\\sqrt\{([^{}]*)\}/g,"√($1)")
+ .replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g,'<span class="fr"><span>$1</span><span>$2</span></span>')
+ .replace(/\\([a-zA-Z]+)/g,(_,c)=>M[c]!==undefined?M[c]:c).replace(/\\[;,!]/g," ");
+ return s}
+const seg=a=>(Array.isArray(a)?a:[]).filter(Boolean).map(g=>g.kind==="tex"?'<span class="m" dir="ltr">\\(\\displaystyle '+esc(g.content)+' \\)</span>':g.kind==="sep"?'<span class="m">|</span>':esc(g.content)).join(" ");
+const one=f=>typeof f==="string"?seg([{kind:"tex",content:f}]):f.tex!=null?seg([{kind:"tex",content:f.tex}]):seg(f.segments);
+function formulas(c){const L=c.formulaLayout,F=(Array.isArray(c.formulas)?c.formulas:[]).filter(okf);
+ const h=Array.isArray(c.formulaHeader)&&c.formulaHeader.length?'<div class="fh">'+seg(c.formulaHeader)+"</div>":"";let b;
+ if(L==="cases")b=F.map(f=>'<div class="cr2"><span>'+seg([f.caseValue])+"</span><span>"+seg(f.caseCondition)+"</span></div>").join("");
+ else if(L==="steps")b='<ol class="steps">'+F.map(f=>"<li><b>"+f.stepNumber+"</b><span>"+one(f)+"</span></li>").join("")+"</ol>";
+ else if(L==="grid")b=F.map(f=>'<div class="gi"><b>'+esc(f.label)+"</b><span>"+one(f)+"</span></div>").join("");
+ else b=F.map(f=>'<div class="fl">'+(f.label?"<b>"+esc(f.label)+"</b> ":"")+one(f)+"</div>").join("");
+ return F.length?'<div class="fbox">'+h+b+"</div>":""}
+
+/* data helpers */
+const cur=()=>S.courses.find(c=>c.id===location.hash.slice(3));
+function merged(c){const m=new Map();(c.files||[]).forEach(f=>(Array.isArray(f.data.sections)?f.data.sections:[]).forEach(s=>{if(!s)return;
+ let e=m.get(s.id);if(!e){e={id:s.id,num:s.num,title:s.title,subs:new Map()};m.set(s.id,e)}
+ (Array.isArray(s.subtopics)?s.subtopics:[]).forEach(t=>{if(!t)return;let u=e.subs.get(t.id);if(!u){u={id:t.id,title:t.title,cards:[]};e.subs.set(t.id,u)}u.cards.push(...(Array.isArray(t.cards)?t.cards:[]).filter(okc).map(norm))})}));
+ return [...m.values()].sort((a,b)=>(a.num||0)-(b.num||0))}
+function hay(c,notes){return [c.id,c.name,c.typeLabel,c.conditions,c.usage,c.connection,c.warning,[].concat(c.keywords||[]).join(" "),c.topic&&[c.topic.main,c.topic.sub].filter(has).join(" "),
+ (Array.isArray(c.formulas)?c.formulas:[]).map(f=>JSON.stringify(f)).join(" "),(Array.isArray(c.formulaHeader)?c.formulaHeader:[]).map(g=>g&&g.content).join(" "),(notes||[]).join(" ")].join(" ").toLowerCase()}
+
+function card(c,cs,ids){const done=!!(cs.learned||{})[c.id],notes=(cs.notes||{})[c.id]||[];
+ const cl=learn&&done?"done":"";
+ const rel=[].concat(c.relatedIds||[]).filter(has).map(i=>ids.has(i)?'<a class="chip" data-go="'+esc(i)+'">#'+esc(i)+"</a>":'<span class="chip">#'+esc(i)+"</span>").join("");
+ return '<div class="card '+cl+'" data-cid="'+esc(c.id)+'">'+BOW+'<button class="xdel" data-xk="'+esc(c.id)+'" aria-label="מחיקת הכרטיס">×</button>'+
+ '<div class="hd">'+(has(c.typeLabel)?'<span class="ty t-'+esc(c.typeKey||"x")+'">'+esc(c.typeLabel)+"</span>":"")+(c._g?"":'<span class="id">#'+esc(c.id)+"</span>")+(has(c.name)?"<h4>"+esc(c.name)+"</h4>":"")+"</div>"+formulas(c)+
+ (has(c.conditions)?'<div class="row"><b>תנאים:</b> '+esc(c.conditions)+"</div>":"")+
+ (has(c.usage)?'<div class="row"><b>מתי משתמשים:</b> '+esc(c.usage)+"</div>":"")+
+ (has(c.connection)?'<div class="row"><b>קשר לנוסחאות אחרות:</b> '+esc(c.connection)+"</div>":"")+
+ (rel?'<div class="row">'+rel+"</div>":"")+
+ (has(c.warning)?'<div class="warn">שימי לב: '+esc(c.warning)+"</div>":"")+
+ (learn?'<label class="chk"><input type="checkbox" data-learn="'+esc(c.id)+'"'+(done?" checked":"")+"> למדתי את זה"+(done?" 🎉":"")+"</label>":"")+
+ '<div class="notes"><b>ההערות שלי</b><ul>'+notes.map((n,i)=>"<li>"+esc(n)+' <button class="x" data-del="'+esc(c.id)+"|"+i+'" aria-label="מחיקה">×</button></li>').join("")+
+ '</ul><div class="nadd"><input placeholder="הוסיפי הערה או משפט נוסף…" data-ni="'+esc(c.id)+'"><button class="btn2" data-na="'+esc(c.id)+'">הוספה</button></div></div></div>'}
+
+function listHTML(c){const secs=merged(c),ids=new Set(),types=new Map();
+ secs.forEach(s=>s.subs.forEach(u=>u.cards.forEach(k=>{ids.add(k.id);if(has(k.typeLabel))types.set(k.typeKey||"x",k.typeLabel)})));
+ if(!secs.length)return '<div class="empty"><div>🫧</div><p>עוד אין כאן חומר. לחצי על "+ הוספת תוכן" ונתחיל 🌱</p></div>';
+ const qq=q.trim().toLowerCase();let total=0,got=0,out="";
+ const chips='<div class="chips"><button class="btn2'+(flt==="all"?" on":"")+'" data-f="all">הכול</button>'+[...types].map(([k,l])=>'<button class="btn2'+(flt===k?" on":"")+'" data-f="'+esc(k)+'">'+esc(l)+"</button>").join("")+"</div>";
+ secs.forEach(s=>{let h="",n=0,d=0,tot=0;
+  s.subs.forEach(u=>{const cs=u.cards.filter(k=>(flt==="all"||(k.typeKey||"x")===flt)&&(!qq||hay(k,((c.notes||{})[k.id])).includes(qq)));
+   tot+=u.cards.length;u.cards.forEach(k=>{if((c.learned||{})[k.id])d++});
+   if(cs.length){h+=(has(u.title)?"<h3>"+esc(u.title)+"</h3>":"")+cs.map(k=>card(k,c,ids)).join("");n+=cs.length}});
+  total+=tot;got+=d;
+  if(n)out+='<details class="sec" data-s="'+esc(s.id)+'"'+((openSec.has(s.id)||qq||flt!=="all")?" open":"")+"><summary>"+BOW+'<span class="num">'+(s.num||"")+"</span><span>נושא "+(s.num||"")+(has(s.title)?": "+esc(s.title):"")+'</span>'+(learn?'<span class="prog">נותרו '+(tot-d)+"/"+tot+"</span>":"")+"</summary><div class=\"body\">"+h+"</div></details>"});
+ if(!out)out='<div class="empty"><div>🫧</div><p>לא מצאתי כלום. אולי ננסה מילה אחרת?</p></div>';
+ return chips+out+(learn?'<p class="empty">'+(total-got?"נותרו ללמידה "+(total-got)+" מתוך "+total+". כל צעד קטן נחשב 🌱":"הכול נלמד, כל הכבוד! 🎉")+"</p>":"")}
+
+/* views */
+function render(){const c=cur();$("#app").innerHTML=c?course(c):home();if(c)$("#list").innerHTML=listHTML(c)}
+function home(){return '<div class="top"><button class="add" id="addc" aria-label="הוספת קורס">+</button><span class="tag">מאגר הנוסחאות שלי</span><p class="sub">בחרי תיקייה ונמשיך ללמוד ביחד</p></div>'+
+ (S.courses.length?'<div class="grid">'+S.courses.map(c=>'<div class="fold" data-c="'+esc(c.id)+'"><button class="xdel" data-xc="'+esc(c.id)+'" aria-label="מחיקת הקורס">×</button>'+BOW+FOLDER+"<b>"+esc(c.name)+"</b><small>"+[c.year&&"שנה "+c.year+"׳",c.sem&&"סמסטר "+c.sem+(c.sem==="קיץ"?"":"׳")].filter(Boolean).join(" • ")+"</small>"+(c.desc?"<br><small>"+esc(c.desc)+"</small>":"")+"</div>").join("")+"</div>":
+ '<div class="empty"><div>🫧</div><p>עוד אין קורסים. לחצי על הפלוס הירוק ונתחיל ✨</p></div>')}
+function course(c){return '<div style="display:flex;justify-content:space-between;align-items:center"><button class="back" id="bk">→ חזרה לקורסים</button><button class="addc" id="adf">+ הוספת תוכן</button></div><div class="top" style="padding:6px 0"><span class="tag">מאגר הנוסחאות של '+esc(c.name)+"</span>"+
+ (c.desc?'<p class="sub">'+esc(c.desc)+"</p>":"")+'</div><div style="margin-top:14px"><input id="sr" placeholder="חיפוש משפט, נוסחה או מילת מפתח…" value="'+esc(q)+'"></div>'+
+ '<div class="swr"><span>מצב למידה</span><button class="sw'+(learn?" on":"")+'" id="lm" role="switch" aria-checked="'+learn+'" aria-label="מצב למידה"></button></div><div id="list"></div>'}
+
+/* events */
+function ask(t,cb){$("#dqt").textContent=t;$("#dq").showModal();$("#dqy").onclick=()=>{$("#dq").close();cb()};$("#dqn").onclick=()=>$("#dq").close()}
+function files(c){const L=(c.files||[]).map((f,i)=>'<div class="fl2"><span>'+esc(f.name)+'</span><button class="btn2" data-rf="'+i+'">הסרה</button></div>').join("");$("#fl").innerHTML='<h3 class="fh2">קבצים נוכחיים</h3>'+(L||'<div class="msg">עדיין אין קבצים</div>')}
+document.addEventListener("click",e=>{const t=e.target,c=cur();
+ if(t.closest("#addc")){$("#cn").value="";$("#cd").value="";$("#cy").value="";$("#cs").value="";$("#cm").textContent="";$("#dc").showModal();return}
+ const xd=t.closest("[data-xc]");if(xd){const c2=S.courses.find(x=>x.id===xd.dataset.xc);if(c2)ask("למחוק את הקורס \""+c2.name+"\" ואת כל החומר שבו?",()=>{S.courses=S.courses.filter(x=>x!==c2);save();render()});return}
+ const fo=t.closest("[data-c]");if(fo){q="";flt="all";learn=false;openSec=new Set();location.hash="c-"+fo.dataset.c;return}
+ if(t.closest("#bk")){location.hash="";history.replaceState(null,"",location.pathname);render();return}
+ if(!c)return;
+ const xk=t.closest("[data-xk]");if(xk){const id=xk.dataset.xk;let k;merged(c).forEach(s=>s.subs.forEach(u=>u.cards.forEach(x=>{if(!k&&x.id===id)k=x})));
+  if(k)ask("למחוק את הכרטיס"+(has(k.name)?" \""+k.name+"\"":"")+"? ההערות שלך עליו יימחקו איתו.",()=>{(c.files||[]).forEach(f=>(Array.isArray(f.data.sections)?f.data.sections:[]).forEach(s=>s&&(Array.isArray(s.subtopics)?s.subtopics:[]).forEach(u=>{if(u&&Array.isArray(u.cards))u.cards=u.cards.filter(x=>x!==k._s)})));
+   if(c.notes)delete c.notes[id];if(c.learned)delete c.learned[id];save();$("#list").innerHTML=listHTML(c)});return}
+ const sw=t.closest("#lm");if(sw){learn=!learn;sw.classList.toggle("on",learn);sw.setAttribute("aria-checked",learn);$("#list").innerHTML=listHTML(c);return}
+ if(t.closest("#adf")){$("#fm").textContent="";files(c);$("#df").showModal();return}
+  const f=t.closest("[data-f]");if(f){flt=f.dataset.f;$("#list").innerHTML=listHTML(c);return}
+ const g=t.closest("[data-go]");if(g){const el=document.querySelector('[data-cid="'+g.dataset.go+'"]');if(el){const d=el.closest("details");if(d)d.open=true;el.scrollIntoView({behavior:"smooth",block:"center"})}return}
+ const na=t.closest("[data-na]");if(na){const id=na.dataset.na,i=document.querySelector('[data-ni="'+id+'"]'),v=i.value.trim();if(!v)return;
+  c.notes=c.notes||{};(c.notes[id]=c.notes[id]||[]).push(v);save();$("#list").innerHTML=listHTML(c);return}
+ const dl=t.closest("[data-del]");if(dl){const[id,i]=dl.dataset.del.split("|");c.notes[id].splice(+i,1);save();$("#list").innerHTML=listHTML(c)}});
+document.addEventListener("change",e=>{const c=cur(),t=e.target;
+ if(c&&t.dataset.learn){c.learned=c.learned||{};if(t.checked)c.learned[t.dataset.learn]=1;else delete c.learned[t.dataset.learn];save();$("#list").innerHTML=listHTML(c)}});
+document.addEventListener("input",e=>{if(e.target.id==="sr"){q=e.target.value;const c=cur();if(c)$("#list").innerHTML=listHTML(c)}});
+document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.dataset&&e.target.dataset.ni){const b=document.querySelector('[data-na="'+e.target.dataset.ni+'"]');if(b)b.click()}});
+document.addEventListener("toggle",e=>{const d=e.target;if(d.classList&&d.classList.contains("sec")){d.open?openSec.add(d.dataset.s):openSec.delete(d.dataset.s)}},true);
+$("#cx").onclick=()=>$("#dc").close();
+$("#cok").onclick=()=>{const n=$("#cn").value.trim();if(!n){$("#cm").textContent="צריך לתת שם לקורס כדי להמשיך 🌷";return}
+ S.courses.push({id:Math.random().toString(36).slice(2,8),name:n,year:$("#cy").value,sem:$("#cs").value,desc:$("#cd").value.trim(),files:[],learned:{},notes:{}});save();$("#dc").close();render()};
+$("#fx").onclick=()=>{$("#df").close();const c=cur();if(c)$("#list").innerHTML=listHTML(c)};
+$("#fb").onclick=()=>$("#fi").click();
+const dz=$("#fb");dz.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();$("#fi").click()}};
+["dragenter","dragover"].forEach(n=>dz.addEventListener(n,e=>{e.preventDefault();dz.classList.add("over")}));
+["dragleave","drop"].forEach(n=>dz.addEventListener(n,e=>{e.preventDefault();dz.classList.remove("over")}));
+dz.addEventListener("drop",e=>{const fs=e.dataTransfer&&e.dataTransfer.files;if(fs&&fs.length){$("#fi").files=fs;$("#fi").onchange({target:$("#fi")})}});
+$("#fi").onchange=async e=>{const c=cur();if(!c)return;let ok=0,bad=0;
+ for(const f of e.target.files){try{const d=JSON.parse(await f.text());const sc=d.sections||(d.course&&d.course.sections);if(!Array.isArray(d.sections))throw 0;(c.files=c.files||[]).push({name:f.name,data:d});ok++}catch(x){bad++}}
+ e.target.value="";if(ok)save();files(c);$("#fm").textContent=(ok?"נוספו "+ok+" קבצים בהצלחה ✨ ":"")+(bad?"לא הצלחתי לקרוא "+bad+" קבצים — כדאי לוודא שיש בהם שדה sections.":"")};
+$("#fl").onclick=e=>{const b=e.target.closest("[data-rf]"),c=cur();if(b&&c){c.files.splice(+b.dataset.rf,1);save();files(c)}};
+let tm,busy=false;
+function rt(){if(busy||!window.MathJax||!MathJax.typesetPromise)return;busy=true;MathJax.typesetPromise([$("#app")]).catch(()=>{}).then(()=>setTimeout(()=>{busy=false},50))}
+new MutationObserver(()=>{clearTimeout(tm);tm=setTimeout(rt,60)}).observe($("#app"),{childList:true,subtree:true});
+addEventListener("load",()=>setTimeout(rt,300));setInterval(rt,1500);
+addEventListener("hashchange",render);
+render();
+</script>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getFirestore,doc,onSnapshot,setDoc} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const app=initializeApp({apiKey:"AIzaSyCyK07k3PFk5R2FZrOtnRrKQ1Pz2ZtyN-I",authDomain:"formula-s-sheets.firebaseapp.com",projectId:"formula-s-sheets",storageBucket:"formula-s-sheets.firebasestorage.app",messagingSenderId:"46539465920",appId:"1:46539465920:web:a6228f2452d3acd281b925"});
+const db=getFirestore(app),bar=document.getElementById("auth");
+const ref=doc(db,"vault","hedva-9f3k2m7q"),shim={doc:()=>({set:d=>setDoc(ref,d).catch(e=>{bar.textContent="השמירה בענן נכשלה ("+e.code+")"})})};
+onSnapshot(ref,snap=>{if(snap.metadata.hasPendingWrites)return;bar.textContent="";
+ if(snap.exists()){try{window.__setState(JSON.parse(snap.data().json))}catch(e){}window.__setDB(shim)}
+ else{window.__setDB(shim);window.save()}},e=>{bar.textContent="הסנכרון לא זמין, הנתונים נשמרים רק במכשיר הזה ("+e.code+")"});
+</script>
+</body>
+</html>
